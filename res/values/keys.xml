@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="nope"></string>
+    <string name="button1">tab</string>
+    <string name="button3">back</string>
+    <string name="button4">left</string>
+    <string name="button2">up</string>
+    <string name="button6">right</string>
+    <string name="button8">down</string>
+    <string name="button5">enter</string>
+    <string name="button12">space</string>
+    <string name="button7">esc</string>
+    <string name="button9">ctrl-f</string>
+    <string name="button11">alt-ctrl-up</string>
+    <string name="button10">alt-ctrl-down</string>
+
+</resources>
