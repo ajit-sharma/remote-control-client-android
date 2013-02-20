@@ -14,5 +14,19 @@
     <string name="button9">ctrl-f</string>
     <string name="button11">alt-ctrl-up</string>
     <string name="button10">alt-ctrl-down</string>
+    
+    <string name="button21">alt-tab</string>
+    <string name="button22">alt-ctrl-tab</string>
+    <string name="button23">super-5</string>
+    <string name="button24">super-2</string>
+    <string name="button25">menu</string>
+    <string name="button26">tab</string>
+    <string name="button27">alt</string>
+    <string name="button28">super</string>    
+    
+    <string name="toggleButton1">shift</string>
+    <string name="toggleButton2">ctrl</string>
+    <string name="toggleButton3">alt</string>
+    <string name="toggleButton4">super</string>
 
 </resources>

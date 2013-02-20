@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,22 +14,18 @@ import android.view.View.OnClickListener;
 
 import com.exromany.app.controller.RepeatListener;
 
-import com.loopj.android.http.*;
-
 public class MainActivity extends Activity {
-	
-	public String address;
+
 	public TextView log;
-	public AsyncHttpClient client;
+	public HttpClient client;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		address = "http://"+getString(R.string.address);
+
 		log = (TextView) findViewById(R.id.textLog);
-		client = new AsyncHttpClient();
-		
+		client = new HttpClient();		
 		
 		final ArrayList<String> buttonsList = new ArrayList<String>();
 		buttonsList.add("button1");
@@ -43,8 +41,6 @@ public class MainActivity extends Activity {
 		buttonsList.add("button11");
 		buttonsList.add("button12");
 		
-		final MainActivity main = this;
-		
 		for(int i = 0; i < buttonsList.size(); i++)
 		{
 			final String buttonName = buttonsList.get(i);
@@ -56,7 +52,7 @@ public class MainActivity extends Activity {
 					String key = getString(R.string.nope);
 					int id = getResources().getIdentifier(buttonName, "string", getPackageName());
 					key = getString(id);
-					main.KeyHttp(key);
+					client.key(key);
 					log.setText(key);
 				}
 			}));
@@ -70,28 +66,18 @@ public class MainActivity extends Activity {
 		return true;
 	}
 	
-	public void KeyHttp(String key) {
-		AsyncHttpClient client = new AsyncHttpClient();
-        client.get(address+"/key/"+key, new AsyncHttpResponseHandler() {
-//        	  @Override
-//              public void onSuccess(String response) {
-//                  this.log("success result");
-//              }
-//              
-//              @Override
-//              public void onStart() {
-//                  this.log("starting");
-//              }
-//              
-//              @Override 
-//              public void onFailure(Throwable error) {
-//                  this.log("failure result");
-//              }
-//              
-//              public void log(String text) {
-//                  log.setText(text);
-//              }
-        });
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) 
+	{
+	    switch (item.getItemId()) 
+		{
+	    case R.id.launch:
+			Intent intent = new Intent(MainActivity.this, LaunchActivity.class);
+			startActivity(intent);
+	        return true;
+	    default:
+	        return super.onOptionsItemSelected(item);
+	    }
 	}
 
 }
